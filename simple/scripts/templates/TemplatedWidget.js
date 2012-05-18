@@ -1,6 +1,6 @@
 define([
     "dojo/_base/declare",   //declare
-    "rishson/widget/_Widget",   //mixin
+    "../../src/js/rishson/widget/_Widget",   //mixin
     "dijit/_TemplatedMixin",    //mixin
     /*If you are using widgets from within your template uncomment the following line and the uses of
      _WidgetsInTemplateMixin later in this file*/

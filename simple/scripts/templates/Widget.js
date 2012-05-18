@@ -1,6 +1,6 @@
 define([
     "dojo/_base/declare",   //declare
-    "rishson/widget/_Widget",   //mixin
+    "../../src/js/rishson/widget/_Widget",   //mixin
     "dojo/i18n!./nls/$className$"   //the nls (string bundle) for this widget
 ], function(declare, _Widget, l10n){
     var $className$ = declare([_Widget], {
