@@ -8,13 +8,10 @@ define([
 	"dojo/i18n!rishson/nls/AppContainer",
 	"rishson/util/ObjectValidator",
 	"dojo/_base/declare", // declare + safeMixin
-	"dijit/layout/ContentPane",
-	"app/view/SimpleHeader",
-	"app/view/SimpleFooter",
 	//template widgets
 	"dijit/layout/BorderContainer"
 ], function (ControllerWidget, _LayoutWidget, _Container, _TemplatedMixin, _WidgetsInTemplateMixin, template, l10n,
-			 ObjectValidator, declare, ContentPane, SimpleHeader, SimpleFooter) {
+			 ObjectValidator, declare) {
 
 	/**
 	 * @class
@@ -59,6 +56,22 @@ define([
 		 * @param {{header : object, app : object, footer : object}} params contains the header, footer and app objects
 		 */
 		constructor: function (params) {
+			var criteria = [
+					{paramName: 'header', paramType: 'object'},
+					{paramName: 'app', paramType: 'object'},
+					{paramName: 'footer', paramType: 'object'}
+				],
+
+				validator = new ObjectValidator(criteria),
+				unwrappedParams = {header: params.header, app: params.app, footer: params.footer};
+
+			if (validator.validate(unwrappedParams)) {
+				declare.safeMixin(this, unwrappedParams);
+			}
+			else {
+				validator.logErrorToConsole(params, 'Invalid params passed to the AppContainer.');
+				throw ('Invalid params passed to the AppContainer.');
+			}
 		},
 
 		/**
@@ -67,15 +80,6 @@ define([
 		 * @override rishson.widget._Widget
 		 */
 		postCreate: function () {
-			this.header = new SimpleHeader({username: 'Rishson', region: 'top'});
-
-			this.app = new ContentPane({region: 'center'});
-			this.app.set('content', 'Your application goes here.');
-
-			this.footer = new SimpleFooter({footerText: '&copy; 2012 Rishson Enterprises.',
-				footerLink: 'http://github.com/rishson',
-				region: 'bottom'});
-
 			this.mainContainer.addChild(this.header);
 			this.mainContainer.addChild(this.app);
 			this.mainContainer.addChild(this.footer);
