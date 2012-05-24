@@ -1,5 +1,15 @@
 <div data-dojo-attach-point="containerNode" class="AppContainer">
 	<div data-dojo-attach-point="mainContainer" data-dojo-type="dijit.layout.BorderContainer"
 		 data-dojo-props="gutters:false" class="AppContainerSubContainer">
+
+		<div data-dojo-attach-point="header" data-dojo-type="app.view.SimpleHeader"
+			 data-dojo-props="region: 'top', username: 'Rishson'"></div>
+
+		<div data-dojo-attach-point="app" data-dojo-type="dijit.layout.ContentPane"
+			 data-dojo-props="region: 'center'">Your application goes here.</div>
+
+		<div data-dojo-attach-point="footer" data-dojo-type="app.view.SimpleFooter"
+			 data-dojo-props="region: 'bottom', footerText: '&copy; 2012 Rishson Enterprises.',
+			 footerLink: 'http://github.com/rishson'"></div>
 	</div>
 </div>

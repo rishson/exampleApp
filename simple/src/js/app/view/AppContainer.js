@@ -4,17 +4,17 @@ define([
 	"dijit/_Container",
 	"dijit/_TemplatedMixin",
 	"dijit/_WidgetsInTemplateMixin",
-	"dojo/text!rishson/view/appContainer/AppContainer.html",
-	"dojo/i18n!rishson/nls/AppContainer",
+	"dojo/text!app/view/appContainer/AppContainer.html",
+	"dojo/i18n!app/nls/AppContainer",
 	"rishson/util/ObjectValidator",
 	"dojo/_base/declare", // declare + safeMixin
+	//template widgets
 	"dijit/layout/ContentPane",
 	"app/view/SimpleHeader",
 	"app/view/SimpleFooter",
-	//template widgets
 	"dijit/layout/BorderContainer"
 ], function (ControllerWidget, _LayoutWidget, _Container, _TemplatedMixin, _WidgetsInTemplateMixin, template, l10n,
-			 ObjectValidator, declare, ContentPane, SimpleHeader, SimpleFooter) {
+			 ObjectValidator, declare) {
 
 	/**
 	 * @class
@@ -67,18 +67,17 @@ define([
 		 * @override rishson.widget._Widget
 		 */
 		postCreate: function () {
+			/* if you wanted to do programatic widget creation then here is an example
 			this.header = new SimpleHeader({username: 'Rishson', region: 'top'});
-
 			this.app = new ContentPane({region: 'center'});
 			this.app.set('content', 'Your application goes here.');
-
 			this.footer = new SimpleFooter({footerText: '&copy; 2012 Rishson Enterprises.',
 				footerLink: 'http://github.com/rishson',
 				region: 'bottom'});
 
 			this.mainContainer.addChild(this.header);
 			this.mainContainer.addChild(this.app);
-			this.mainContainer.addChild(this.footer);
+			this.mainContainer.addChild(this.footer);*/
 
 			this.injectWidget(this.header); //hook up to all topics published from the header widget
 			//this.injectWidget(this.app) - this would start the auto-wiring of the application

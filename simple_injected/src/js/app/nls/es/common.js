@@ -1,3 +1,0 @@
-define({
-	open: "Abrir"
-});

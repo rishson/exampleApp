@@ -38,11 +38,8 @@
 	<script type="text/javascript">
 		require([
 			"dojo/dom", // byId
-			"dijit/layout/ContentPane",
-			"app/view/AppContainer",
-			"app/view/SimpleHeader",
-			"app/view/SimpleFooter"
-		], function (dom, ContentPane, AppContainer, SimpleHeader, SimpleFooter) {
+			"app/view/AppContainer"
+		], function (dom, AppContainer) {
 
 			dojo.ready(function () {
 				var placeholder = dom.byId('placeholder');
